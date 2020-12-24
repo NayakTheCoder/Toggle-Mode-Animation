@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Mode</title>
+    <style>
+        h1{
+            position:absolute;
+            left: 40%;
+            top: 17%;
+            font-size: 45px;
+        }
+        #toggle{
+            position: absolute;
+            width: 60px;
+            left: 47%;
+            top: 60%;
+            height: 60px;
+            border: 20px;
+            border-radius: 60%;
+            background-color: yellow;
+            cursor: pointer;
+            }
+            .hello{
+                background-color: black;
+                color: white;
+            }
+            body{
+                background-color: white;
+                color: black;
+            }
+            .gotoggle{
+                transition: 4s ease-in-out;
+                background-color: white;
+            }
+    </style>
+</head>
+<body>
+    <h1>Dark Mode ?</h1>
+    <div onclick="myfunction()" id="toggle">
+
+    </div>
+</body>
+<script>
+    function myfunction(){
+        let body = document.querySelector("body");
+        let togglemode = document.getElementById("toggle");
+        togglemode.classList.toggle("gotoggle");
+        body.classList.toggle("hello");
+    }
+</script>
+</html>
