@@ -3,51 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toggle Mode</title>
+    <title>Toggle Mode animation</title>
     <style>
-        h1{
-            position:absolute;
-            left: 40%;
-            top: 17%;
-            font-size: 45px;
-        }
-        #toggle{
+        .bar{
             position: absolute;
-            width: 60px;
-            left: 47%;
-            top: 60%;
-            height: 60px;
-            border: 20px;
-            border-radius: 60%;
-            background-color: yellow;
+            width: 70px;
+            height: 10px;
+            border: 2px solid black;
+            border-radius: 10px ;
+          left: 600px;
+          top:283px;
+        }
+        .button{
+            position: absolute;
+            transition: 0.5s;
+            width: 15px;
+            height: 15px;
+            border: 3px solid black;
+            border-radius: 25px;
+            left: 600px;
+            top: 280px;
+            background-color: black;
             cursor: pointer;
-            }
-            .hello{
-                background-color: black;
-                color: white;
-            }
-            body{
-                background-color: white;
-                color: black;
-            }
-            .gotoggle{
-                transition: 4s ease-in-out;
-                background-color: white;
-            }
+        }
+        .move{
+            position: absolute;
+            transition: 0.5s;
+            
+            left: 660px;
+            background-color: white;
+        }
+        .back{
+            position: absolute;
+            transition:2s;
+            background-color: black;
+            color: white;
+        }
+        .border{
+            border: 2px solid white;
+            border-radius: 10px;
+           /* position: absolute;
+            left: 598px;
+            top: 280px;
+            width: 70px;
+            height: 10px;
+            border: 2px solid white;
+            border-radius: 10px;
+            */
+        }
     </style>
 </head>
 <body>
-    <h1>Dark Mode ?</h1>
-    <div onclick="myfunction()" id="toggle">
-
-    </div>
+    <p class="bar"></p>
+    <p class  = "button"></p>
 </body>
 <script>
-    function myfunction(){
+    let button = document.querySelector(".button");
+    button.addEventListener("click" , function(e){
+        let bar = document.querySelector(".bar");
+        bar.classList.toggle("border")
+        button.classList.toggle("move");
         let body = document.querySelector("body");
-        let togglemode = document.getElementById("toggle");
-        togglemode.classList.toggle("gotoggle");
-        body.classList.toggle("hello");
-    }
-</script>
+        body.classList.toggle("back");
+    })
+    
+    </script>
 </html>
