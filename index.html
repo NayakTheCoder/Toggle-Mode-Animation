@@ -3,69 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toggle Mode animation</title>
-    <style>
-        .bar{
-            position: absolute;
-            width: 70px;
-            height: 10px;
-            border: 2px solid black;
-            border-radius: 10px ;
-          left: 600px;
-          top:283px;
-        }
-        .button{
+    <title>Toggle mode</title>
+</head>
+<style>
+    .bar{
+        position: absolute;
+        width: 350px;
+        height: 120px;
+        border: 2px solid black;
+        border-radius: 60px;
+    }
+    .button{
             position: absolute;
             transition: 0.5s;
-            width: 15px;
-            height: 15px;
+            width: 120px;
+            height: 120px;
             border: 3px solid black;
-            border-radius: 25px;
-            left: 600px;
-            top: 280px;
+            border-radius: 65px;
+       left: 0px;
             background-color: black;
             cursor: pointer;
         }
-        .move{
+        .moveright{
             position: absolute;
             transition: 0.5s;
-            
-            left: 660px;
+            border: 3px solid white;
+            border-radius: 65px;
+            left: 237px;
             background-color: white;
         }
-        .back{
-            position: absolute;
-            transition:2s;
+        .black{
+            transition: 0.5s;
             background-color: black;
             color: white;
         }
-        .border{
+        .gowhite{
             border: 2px solid white;
-            border-radius: 10px;
-           /* position: absolute;
-            left: 598px;
-            top: 280px;
-            width: 70px;
-            height: 10px;
-            border: 2px solid white;
-            border-radius: 10px;
-            */
+            border-radius: 60px;
         }
-    </style>
-</head>
-<body>
-    <p class="bar"></p>
-    <p class  = "button"></p>
-</body>
-<script>
-    let button = document.querySelector(".button");
-    button.addEventListener("click" , function(e){
-        let bar = document.querySelector(".bar");
-        bar.classList.toggle("border")
-        button.classList.toggle("move");
-        let body = document.querySelector("body");
-        body.classList.toggle("back");
-    })
+        .moon{
+            position: absolute; 
+     top: 45px; 
+     left: 83px; 
+     transform: translate(-55%, -55%); 
+     height: 80px; 
+     width: 80px; 
+     box-shadow: -15px 15px 0 5px rgb(251, 255, 1)  ; 
+     border-radius: 50%; 
+        }
+        .moonhide{
+            display: none;
+            height: 80px; 
+     width: 80px; 
+     border: 0.5px;
+     border-radius: 25px;
+     background-color: yellow;
+        }
+        .sun{
+            position: absolute; 
+            display:none;
+     top: 0%; 
+     bottom: 20%;
+     left: 13px; 
+     height: 96px; 
+     width: 96px;
     
-    </script>
+     border-radius: 49px;
+     background-color: yellow;
+        }
+        .sunshow{
+            display: block;
+        }
+        .info{
+            position: absolute;
+            top: 35%;
+            left: 38%;
+            font-size: 65px;
+        }
+        .change{
+            color: white;
+        }
+</style>
+<body>
+    <p class = "bar"></p>
+    <p class="button"></p>
+    <div class="moon"></div>
+   <p class="sun"></p>
+   <p class = "info">Which mode ??</p>
+    </body>
+<script>
+    const button = document.querySelector(".button");
+    let moon = document.querySelector(".moon");
+    let sun = document.querySelector(".sun");
+    button.append(sun)
+    button.append(moon)
+    button.addEventListener("click" , function(){
+        let info = document.querySelector(".info");
+        info.classList.toggle("change")
+        button.classList.toggle("moveright");
+        moon.classList.toggle("moonhide");
+        sun.classList.toggle("sunshow");
+        let body = document.querySelector("body");
+        let bar = document.querySelector(".bar");
+        bar.classList.toggle("gowhite");
+        body.classList.toggle("black");
+    })
+</script>
 </html>
