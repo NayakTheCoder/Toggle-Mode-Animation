@@ -56,7 +56,7 @@
             position: absolute; 
      top: 45px; 
      left: 83px; 
-     transform: translate(-55%, -55%); 
+     transform: translate(-50%, -50%); 
      height: 80px; 
      width: 80px; 
      box-shadow: -15px 15px 0 5px rgb(255, 255, 255)  ; 
@@ -72,20 +72,66 @@
         .change{
             color: white;
         }
+        .sun{
+            position: absolute;
+            transition: 0.5s;
+            top: 262px;
+            bottom: 0px;
+            left: 950px;
+            width: 100px;
+            height: 100px;
+            border-radius: 49px;
+            background-color: yellow;
+        }
+        .sungo{
+           transition: 0.5s;
+           top: -120px;
+        }
+        .m{
+            position: absolute;
+            transition: 0.5s; 
+            top: -120px;
+            bottom: 0px;
+            left: 1010px;
+     transform: translate(-55%, -55%); 
+     height: 80px; 
+     width: 80px; 
+     box-shadow: -15px 15px 0 5px rgb(90, 88, 88)  ; 
+     border-radius: 50%; 
+        }
+        .get{
+            position: absolute;
+            transition: 0.5s; 
+     top: 290px; 
+     left: 1010px; 
+     transform: translate(-50%, -50%); 
+     height: 80px; 
+     width: 80px; 
+     box-shadow: -15px 15px 0 5px rgb(255, 255, 255)  ; 
+     border-radius: 50%; 
+        }
 </style>
 <body>
     <p class = "bar"></p>
     <p class="button"></p>
     <div class="moon"></div>
+    <p class="sun"></p>
    <p class = "info">Which mode ??</p>
+   <p class="m"></p>
     </body>
 <script>
     const button = document.querySelector(".button");
     let moon = document.querySelector(".moon");
+    let m = document.querySelector(".m");
+    let sun = document.querySelector(".sun");
+    let sunpos = 500 + "px";
+    let suntop = sun.style.top;
     button.append(moon)
     button.addEventListener("click" , function(){
         let info = document.querySelector(".info");
         info.classList.toggle("change")
+        sun.classList.toggle("sungo");
+        m.classList.toggle("get")
         button.classList.toggle("moveright");
         moon.classList.toggle("moonhide");
         let body = document.querySelector("body");
